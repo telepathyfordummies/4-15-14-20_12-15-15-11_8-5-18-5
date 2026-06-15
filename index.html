@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<img id="image" src="image1.png">
+
+<div class="controls">
+    <button id="backBtn">←</button>
+    <button id="nextBtn">→</button>
+</div>
+
+    <audio id="pageFlip" src="pageflip.mp3"></audio>
+    
+<script>
+
+const flipSound = document.getElementById("pageFlip");
+    
+const images = [
+    "cover.png",
+    "wendyslog1.png",
+    "wendyslog2.png",
+    "wendyslog3.png",
+    "wendyslog4.png",
+    "wendyslog5.png",
+    "wendyslog6.png",
+    "wendyslog7.png",
+    "wendyslog8.png",
+    "wendyslog9.png",
+    "wendyslog10.png",
+    "wendyslog11.png",
+    "wendyslog12.png",
+    "wendyslog13.png",
+    "wendyslog14.png",
+    "wendyslog15.png",
+    "wendyslog16.png",
+    "wendyslog17.png",
+    "wendyslog18.png",
+    "wendyslog19.png",
+    "wendyslog20.png",
+    "wendyslog21.png",
+    "wendyslog22.png"
+];
+
+let current = 0;
+
+const image = document.getElementById("image");
+
+function updateImage() {
+    image.src = images[current];
+
+    document.getElementById("backBtn").style.visibility =
+        current === 0 ? "hidden" : "visible";
+
+    document.getElementById("nextBtn").style.visibility =
+        current === images.length - 1 ? "hidden" : "visible";
+}
+
+document.getElementById("nextBtn").onclick = () => {
+    if (current < images.length - 1) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
+        current++;
+        updateImage();
+    }
+};
+
+document.getElementById("backBtn").onclick = () => {
+    if (current > 0) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
+        current--;
+        updateImage();
+    }
+};
+
+    document.getElementById("backBtn").onclick = () => {
+    if (current > 0) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
+        current--;
+        updateImage();
+    }
+};
+
+updateImage();
+    
+</script>
+
+</body>
+</html>
